@@ -1,0 +1,68 @@
+{
+  "name": "@jr93/repo-template",
+  "version": "0.0.0",
+  "description": "single repo template",
+  "repository": "git@github.com:JR93/repo-template.git",
+  "author": "JR93 <gjr_china@163.com>",
+  "main": "index.js",
+  "scripts": {
+    "ct": "git-cz",
+    "lint": "xo",
+    "release": "cross-env standard-version && git push --follow-tags origin master && npm publish"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^7.0.0",
+    "@commitlint/config-conventional": "^7.0.1",
+    "commitizen": "^2.10.1",
+    "cross-env": "^5.2.0",
+    "cz-conventional-changelog": "^2.1.0",
+    "husky": "^1.0.0-rc.13",
+    "lerna-changelog": "^0.8.0",
+    "lint-staged": "^7.2.0",
+    "standard-version": "^4.4.0",
+    "xo": "^0.21.1"
+  },
+  "xo": {
+    "space": 2,
+    "semicolon": false,
+    "esnext": true,
+    "rules": {
+      "capitalized-comments": 0,
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ]
+    },
+    "ignores": [
+      "vendor/**"
+    ]
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "cross-env-shell commitlint -e $HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "xo --fix",
+      "git add"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "engines": {
+    "node": ">= 8"
+  }
+}
