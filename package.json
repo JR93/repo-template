@@ -7,6 +7,7 @@
   "main": "index.js",
   "scripts": {
     "ct": "git-cz",
+    "log": "lerna-changelog",
     "lint": "xo",
     "release": "cross-env standard-version && git push --follow-tags origin master && npm publish"
   },
@@ -61,6 +62,17 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "changelog": {
+    "repo": "JR93/repo-template",
+    "labels": {
+      "breaking": ":boom: Breaking Change",
+      "enhancement": ":rocket: Enhancement",
+      "bug": ":bug: Bug Fix",
+      "documentation": ":memo: Documentation",
+      "internal": ":house: Internal"
+    },
+    "cacheDir": ".changelog"
   },
   "engines": {
     "node": ">= 8"
