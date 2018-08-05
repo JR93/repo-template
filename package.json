@@ -1,6 +1,6 @@
 {
   "name": "@jr93/repo-template",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "single repo template",
   "repository": "git@github.com:JR93/repo-template.git",
   "author": "JR93 <gjr_china@163.com>",
